@@ -1,0 +1,42 @@
+{
+  "name": "m-sdk-be",
+  "version": "0.0.1",
+  "description": "Mining SDK",
+  "keywords": [
+    "tether"
+  ],
+  "author": "Tether",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tetherto/mdk-be.git"
+  },
+  "engine": {
+    "node": ">=20.0"
+  },
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "test": "npm run lint && npm run test:unit && npm run test:integration",
+    "test:unit": "NODE_ENV=test brittle tests/unit/**/*.test.js",
+    "test:integration": "NODE_ENV=test npx brittle tests/integration/**/*.test.js",
+    "test:coverage": "brittle --coverage tests/unit/**/*.js",
+    "samples:miner": "node samples/mdk.client.miner.js"
+  },
+  "dependencies": {
+    "antminer": "git+https://github.com/tetherto/miningos-lib-miner-antminer.git#develop",
+    "avalon": "git+https://github.com/tetherto/miningos-lib-miner-avalon.git#develop",
+    "bfx-facs-interval": "git+https://github.com/bitfinexcom/bfx-facs-interval.git",
+    "bfx-facs-http": "git+https://github.com/bitfinexcom/bfx-facs-http.git",
+    "bfx-svc-boot-js": "git+https://github.com/bitfinexcom/bfx-svc-boot-js.git",
+    "hp-svc-facs-store": "git+https://github.com/tetherto/hp-svc-facs-store.git",
+    "ork": "git+https://github.com/tetherto/miningos-wrk-ork.git#develop",
+    "app-node": "git+https://github.com/tetherto/miningos-app-node.git#develop",
+    "whatsminer": "git+https://github.com/tetherto/miningos-lib-miner-whatsminer.git#develop",
+    "svc-facs-action-approver": "git+https://github.com/tetherto/svc-facs-action-approver.git"
+  },
+  "devDependencies": {
+    "brittle": "3.18.0",
+    "standard": "17.1.0"
+  }
+}
